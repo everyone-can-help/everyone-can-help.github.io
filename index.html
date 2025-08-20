@@ -38,9 +38,15 @@
 
   <!-- Audio Playback Script -->
   <script>
+    let currentAudio = null;
     function playSound(src) {
-      const audio = new Audio(src);
-      audio.play();
+      if(currentAudio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+      }
+      
+      currentAudio = new Audio(src);
+      currentAudio.play();
     }
 </script>
 
