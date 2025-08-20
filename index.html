@@ -37,19 +37,31 @@
   </footer>
 
   <!-- Audio Playback Script -->
-  <script>
-    let currentAudio = null;
-    function playSound(src) {
-      if(currentAudio) {
-        currentAudio.pause();
-        currentAudio.currentTime = 0;
-      }
-      
-      currentAudio = new Audio(src);
-      currentAudio.play();
+<script>
+  let currentAudio = null;
+  let currentSrc = null;
+
+  function playSound(src) {
+    // If same sound is playing, stop it
+    if (currentAudio && currentSrc === src && !currentAudio.paused) {
+      currentAudio.pause();
+      currentAudio.currentTime = 0;
+      currentAudio = null;
+      currentSrc = null;
+      return;
     }
+
+    // Stop previous sound
+    if (currentAudio) {
+      currentAudio.pause();
+      currentAudio.currentTime = 0;
+    }
+
+    // Play new sound
+    currentAudio = new Audio(src);
+    currentSrc = src;
+    currentAudio.play();
+  }
 </script>
-
-
 
 </body></html>
