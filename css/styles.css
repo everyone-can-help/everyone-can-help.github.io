@@ -1,0 +1,90 @@
+* {
+  box-sizing: border-box;
+}
+    @font-face {
+      font-family: 'NotoSansTC';
+      src: url('NotoSansTC-ExtraBold.ttf') format('truetype');
+      font-weight: 800;
+      font-style: normal;
+    }
+    
+body {
+  margin: 0;
+  font-family: sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* 🚫 disables scrolling */
+  background-image: url('../img/bg.svg');
+  background-size: 480%;        /* Zooms in by scaling the image */
+  background-repeat: no-repeat;
+  background-position: center;
+}
+    
+
+/* Fixed banner */
+.banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  background-color: #fff;
+  z-index: 10;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.banner img {
+  width: 80vw;
+  height: auto;
+  padding:1em 0 1em 0;
+}
+
+.main-content {
+  position: absolute;
+  top: 20vh; /* height of banner */
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.button-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3vw;
+  width: 100%;
+  max-width: 80vw;
+}
+
+.sound-button {
+  width: 100%;
+  cursor: pointer;
+  padding: 0 2px
+}
+
+.sound-button img {
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 10;
+  /*background-color: #fff;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.1);*/
+}
+
+footer img {
+  width: 5vh;
+  height: auto;
+}
+
